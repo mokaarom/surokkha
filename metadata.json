@@ -1,0 +1,8 @@
+{
+  "name": "surokkha",
+  "description": "Offline-first, AI-powered emergency response and safety platform for Bangladesh with wearable detection, 999 dispatch, and mesh safety.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

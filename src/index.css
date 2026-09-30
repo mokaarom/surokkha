@@ -1,0 +1,254 @@
+/**
+ * @file index.css
+ * @project Surokkha AI — Offline-First Emergency Safety Ecosystem
+ * @author Mohammed Muntasir Rahman Joy
+ * @description Global stylesheet establishing theme variables, font declarations,
+ * celestial starfield textures, atmospheric glows, and cyber-reticle keyframe animations.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+html,
+body,
+#root,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+button,
+input,
+label,
+li,
+ul {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+code,
+pre,
+.font-mono {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace !important;
+}
+
+::selection {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+.hero-title {
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+}
+
+/* Starfield Background texture matching reference images */
+.starfield-bg {
+  background-color: #000000;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1.5px 1.5px at 90px 40px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 160px 120px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 230px 190px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 310px 80px, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 390px 220px, rgba(255, 255, 255, 0.25), transparent);
+  background-size: 450px 350px;
+}
+
+/* White light atmospheric glows (replacing purple with white light) */
+.white-glow-card {
+  position: relative;
+  background: rgba(10, 10, 12, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 50px -15px rgba(255, 255, 255, 0.08);
+}
+
+.white-glow-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 60px -10px rgba(255, 255, 255, 0.16);
+}
+
+.white-light-hero-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 60%, transparent 80%);
+}
+
+.white-light-bottom-glow {
+  background: radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 75%);
+}
+
+.white-light-side-glow {
+  background: radial-gradient(circle at 100% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+}
+
+/* Subtle, ultra-clean scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
+}
+
+/* ========================================================================= */
+/* Futuristic Cyber Reticle Card (Matching User's Component)                  */
+/* ========================================================================= */
+.cyber-card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cyber-card-wrapper .outer {
+  width: 300px;
+  height: 250px;
+  border-radius: 10px;
+  padding: 1px;
+  background: radial-gradient(circle 230px at 0% 0%, #ffffff, #0c0d0d);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cyber-card-wrapper:hover .outer {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.15);
+}
+
+.cyber-card-wrapper .dot {
+  width: 5px;
+  aspect-ratio: 1;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ffffff;
+  border-radius: 100px;
+  z-index: 2;
+  right: 10%;
+  top: 10%;
+  animation: moveDot 6s linear infinite;
+}
+
+@keyframes moveDot {
+  0%,
+  100% {
+    top: 10%;
+    right: 10%;
+  }
+  25% {
+    top: 10%;
+    right: calc(100% - 35px);
+  }
+  50% {
+    top: calc(100% - 30px);
+    right: calc(100% - 35px);
+  }
+  75% {
+    top: calc(100% - 30px);
+    right: 10%;
+  }
+}
+
+.cyber-card-wrapper .card {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 9px;
+  border: solid 1px #202222;
+  background-size: 20px 20px;
+  background: radial-gradient(circle 280px at 0% 0%, #444444, #0c0d0d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  color: #fff;
+  overflow: hidden;
+}
+
+.cyber-card-wrapper .ray {
+  width: 220px;
+  height: 45px;
+  border-radius: 100px;
+  position: absolute;
+  background-color: #c7c7c7;
+  opacity: 0.4;
+  box-shadow: 0 0 50px #fff;
+  filter: blur(10px);
+  transform-origin: 10%;
+  top: 0%;
+  left: 0;
+  transform: rotate(40deg);
+  pointer-events: none;
+}
+
+.cyber-card-wrapper .card .text {
+  font-weight: 800;
+  font-size: 3.4rem;
+  line-height: 1;
+  background: linear-gradient(45deg, #000000 4%, #fff, #000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.03em;
+  z-index: 2;
+  text-align: center;
+}
+
+.cyber-card-wrapper .card .label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #d1d5db;
+  margin-top: 0.5rem;
+  letter-spacing: 0.03em;
+  z-index: 2;
+  text-align: center;
+}
+
+.cyber-card-wrapper .line {
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background-color: #2c2c2c;
+  pointer-events: none;
+}
+
+.cyber-card-wrapper .topl {
+  top: 10%;
+  background: linear-gradient(90deg, #888888 30%, #1d1f1f 70%);
+}
+
+.cyber-card-wrapper .bottoml {
+  bottom: 10%;
+}
+
+.cyber-card-wrapper .leftl {
+  left: 10%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, #747474 30%, #222424 70%);
+}
+
+.cyber-card-wrapper .rightl {
+  right: 10%;
+  width: 1px;
+  height: 100%;
+}
