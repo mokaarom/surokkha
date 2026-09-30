@@ -7,6 +7,7 @@
  */
 
 import React, { useState } from 'react';
+import { getAssetUrl } from '../utils/assets';
 
 interface AccessModalProps {
   isOpen: boolean;
@@ -49,11 +50,11 @@ export const AccessModal: React.FC<AccessModalProps> = ({ isOpen, onClose }) => 
 
         <div className="flex items-center gap-2 mb-4">
           <img
-            src="/logo-white.png"
+            src={getAssetUrl('logo-white.png')}
             alt="surokkha logo"
             className="h-5 w-5 object-contain"
             onError={(e) => {
-              e.currentTarget.src = '/logo-black.png';
+              e.currentTarget.src = getAssetUrl('logo-black.png');
               e.currentTarget.classList.add('invert');
             }}
           />

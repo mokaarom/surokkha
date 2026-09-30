@@ -8,6 +8,7 @@
 
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Instagram, Youtube, Github, PhoneCall, ShieldCheck, FileText } from 'lucide-react';
+import { getAssetUrl } from '../utils/assets';
 
 interface FooterProps {
   /** Callback to display comprehensive system whitepaper modal */
@@ -57,7 +58,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal, onOpenModal }) =
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.15)]">
-                <img src="/logo-white.png" alt="Surokkha Logo" className="w-5 h-5 object-contain" />
+                <img src={getAssetUrl('logo-white.png')} alt="Surokkha Logo" className="w-5 h-5 object-contain" />
               </div>
               <span className="text-white text-xl font-bold tracking-tight">
                 Surokkha.AI

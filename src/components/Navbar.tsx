@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import { getAssetUrl } from '../utils/assets';
 
 interface NavbarProps {
   /** Callback to trigger early access waitlist modal */
@@ -19,11 +20,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
       {/* Brand Identity Pill */}
       <div className="pointer-events-auto flex items-center gap-2 bg-neutral-900/90 backdrop-blur rounded-full pl-4 pr-6 py-3 border border-white/10 shadow-lg">
         <img
-          src="/logo-white.png"
+          src={getAssetUrl('logo-white.png')}
           alt="Surokkha Logo"
           className="h-5 w-5 object-contain"
           onError={(e) => {
-            e.currentTarget.src = '/logo-black.png';
+            e.currentTarget.src = getAssetUrl('logo-black.png');
             e.currentTarget.classList.add('invert');
           }}
         />

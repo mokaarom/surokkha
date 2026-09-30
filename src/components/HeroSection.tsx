@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import { getAssetUrl } from '../utils/assets';
 
 interface HeroSectionProps {
   onOpenModal: () => void;
@@ -18,16 +19,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenModal, onOpenSim
 
   return (
     <section className="relative w-full bg-black overflow-hidden">
-      {/* Background Video (Shared across views) */}
+      {/* Background Video (Shared across views) with faststart MP4 / WebM and instant poster */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-60 md:opacity-100"
         autoPlay
         loop
         muted
         playsInline
-        src="/bg.mkv"
+        poster={getAssetUrl('bg-poster.webp')}
+        preload="auto"
       >
-        <source src="/bg.mkv" type="video/mp4" />
+        <source src={getAssetUrl('bg.webm')} type="video/webm" />
+        <source src={getAssetUrl('bg.mp4')} type="video/mp4" />
       </video>
 
       {/* Subtle Dark Vignette & Bottom Fade */}
